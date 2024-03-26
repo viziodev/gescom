@@ -1,0 +1,50 @@
+<div class="container mt-5">
+      <div class="card">
+        <div class="card-header">Liste des Clients</div>
+        <div class="card-body">
+            <div
+                class="table-responsive"
+            >
+                <table class="table table-bordered" >
+                    <thead>
+                        <tr>
+                            <th scope="col">Client</th>
+                            <th scope="col">Adresse</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (item of response?.results; track $index) {
+                            <tr  class="">
+                                <td>{{item.nomComplet}}</td>
+                                <td>{{item.addresse}}</td>
+                            </tr>
+                       }
+                    </tbody>
+                </table>
+            </div>
+            
+           <nav aria-label="Page navigation example">
+             <ul class="pagination pagination-sm float-end">
+               <li class="page-item">
+                 <a class="page-link" href="#" aria-label="Previous">
+                   <span aria-hidden="true">Previous</span>
+                 </a>
+               </li>
+               @for (item of [].constructor(response?.totalPages); track $index) {
+                   <li class="page-item"><a class="page-link" href="#">{{$index+1}}</a></li>
+               }
+              
+              
+               
+               <li class="page-item">
+                 <a class="page-link" href="#" aria-label="Next">
+                   <span aria-hidden="true">Next</span>
+                 </a>
+               </li>
+             </ul>
+           </nav>
+        </div>
+      </div>
+      
+</div>
+
