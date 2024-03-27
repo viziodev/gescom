@@ -1,0 +1,106 @@
+<div class="container mt-5 w-50">
+    <div class="card">
+      <div class="card-header">Formulaire Enregistrement </div>
+      <div class="card-body">
+          <form action="" #formClient="ngForm" (ngSubmit)="formClient.form.valid && onSubmit()">
+            <div class="mb-3">
+                <label for="" class="form-label">Nom</label>
+                 <input
+                    type="text"
+                    class="form-control border border-danger "
+                    name="nom"
+                    id=""
+                    aria-describedby="helpId"
+                    placeholder=""
+                    #nom="ngModel"
+                    minlength="6"
+                    [(ngModel)]="clientCreate.nom"
+                    required
+                />
+                 @if (nom.errors && (nom.dirty || nom.touched) ) {
+                    @if (nom.errors['required']) {
+                        <small id="helpId" class="form-text text-danger">Le nom est Obligatoire</small>
+                    }
+                    @if (nom.errors['minlength']) {
+                        <small id="helpId" class="form-text text-danger">Le nom doit avoir au minimun 6 caracteres</small>
+                    }
+                     
+                 }
+                
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Prenom</label>
+                 <input
+                    type="text"
+                    class="form-control"
+                    name=""
+                    id=""
+                    aria-describedby="helpId"
+                    placeholder=""
+                />
+                <small id="helpId" class="form-text text-muted">Help text</small>
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Telephone</label>
+                 <input
+                    type="text"
+                    class="form-control"
+                    name=""
+                    id=""
+                    aria-describedby="helpId"
+                    placeholder=""
+                />
+                <small id="helpId" class="form-text text-muted">Help text</small>
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Quartier</label>
+                 <input
+                    type="text"
+                    class="form-control"
+                    name=""
+                    id=""
+                    aria-describedby="helpId"
+                    placeholder=""
+                />
+                <small id="helpId" class="form-text text-muted">Help text</small>
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Ville</label>
+                 <input
+                    type="text"
+                    class="form-control"
+                    name=""
+                    id=""
+                    aria-describedby="helpId"
+                    placeholder=""
+                />
+                <small id="helpId" class="form-text text-muted">Help text</small>
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">NumVilla</label>
+                 <input
+                    type="text"
+                    class="form-control"
+                    name=""
+                    id=""
+                    aria-describedby="helpId"
+                    placeholder=""
+                />
+                <small id="helpId" class="form-text text-muted">Help text</small>
+            </div>
+
+            <div >
+                <button
+                  [disabled]="formClient.invalid"
+                    type="submit"
+                    class="btn btn-primary float-end"
+                >
+                    Submit
+                </button>
+                
+            </div>
+            
+          </form>
+      </div>
+    </div>
+</div>

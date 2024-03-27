@@ -1,7 +1,8 @@
 import { Observable } from "rxjs";
 import { RestResponse } from "../models/rest.response";
-import { ClientListe } from "../models/client.liste";
+import { ClientCreateRequest, ClientListe } from "../models/client";
 
 export interface ClientService {
-    findAll():Observable<RestResponse<ClientListe[]>>
+    findAll(pageNumber:number):Observable<RestResponse<ClientListe[]>>
+    create(clientRequest:ClientCreateRequest):Observable<RestResponse<ClientListe>>
 }

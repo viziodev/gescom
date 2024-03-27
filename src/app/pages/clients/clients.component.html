@@ -1,7 +1,18 @@
-<div class="container mt-5">
-      <div class="card">
-        <div class="card-header">Liste des Clients</div>
+<div class="container mt-5 ">
+        
+      
+      
+      <div class="card"  >
+         
+        <div class="card-header">Liste des Clients
+         
+        </div>
         <div class="card-body">
+          <div class="my-2 ">
+              <a routerLink="form" type="button" class="btn btn-outline-primary ">
+                Nouveau
+              </a>
+          </div>
             <div
                 class="table-responsive"
             >
@@ -10,6 +21,7 @@
                         <tr>
                             <th scope="col">Client</th>
                             <th scope="col">Adresse</th>
+                            <th scope="col"></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -17,6 +29,14 @@
                             <tr  class="">
                                 <td>{{item.nomComplet}}</td>
                                 <td>{{item.addresse}}</td>
+                                <td><a
+                                  routerLink="/commandes/{{item.id}}"  
+                                  type="button"
+                                  class="btn btn-outline-info btn-xs"
+                                >
+                                  Mes  Commande
+                                </a>
+                                </td>
                             </tr>
                        }
                     </tbody>
@@ -30,9 +50,9 @@
                    <span aria-hidden="true">Previous</span>
                  </a>
                </li>
-               @for (item of [].constructor(response?.totalPages); track $index) {
-                   <li class="page-item"><a class="page-link" href="#">{{$index+1}}</a></li>
-               }
+                 @for (item of [].constructor(response?.totalPages); track $index) {
+                     <li class="page-item" ><a (click)="paginate($index)" class="page-link" href="javascript:void(0)">{{$index+1}}</a></li>
+                 }
               
               
                

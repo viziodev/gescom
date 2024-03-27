@@ -1,1 +1,61 @@
-<p>commandes works!</p>
+
+<div class="container mt-5">
+    <div class="card my-2" >
+     
+      <div class="card-body">
+            <div class="row">
+                <div class="col">Nom et Prenom  : {{response?.results?.client?.nomComplet}}</div>
+                <div class="col">Adresse: {{response?.results?.client?.addresse}}</div>
+            </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">Liste des Commande </div>
+      <div class="card-body">
+          <div
+              class="table-responsive"
+          >
+              <table class="table table-bordered" >
+                  <thead>
+                      <tr>
+                          <th scope="col">Numero</th>
+                          <th scope="col">Date</th>
+                          <th scope="col">Montant</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      @for (item of response?.results?.commandes; track $index) {
+                          <tr  >
+                              <td>{{item.numero}}</td>
+                              <td>{{item.dateCmd }}</td>
+                              <td>{{item.montant}}</td>
+                          </tr>
+                     }
+                  </tbody>
+              </table>
+          </div>
+          
+          <nav aria-label="Page navigation example">
+            <ul class="pagination pagination-sm float-end">
+              <li class="page-item">
+                <a class="page-link" href="#" aria-label="Previous">
+                  <span aria-hidden="true">Previous</span>
+                </a>
+              </li>
+                @for (item of [].constructor(response?.totalPages); track $index) {
+                    <li class="page-item" ><a (click)="paginate($index)" class="page-link" href="javascript:void(0)">{{$index+1}}</a></li>
+                }
+             
+             
+              
+              <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next">
+                  <span aria-hidden="true">Next</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+      </div>
+    </div>
+    
+</div>
