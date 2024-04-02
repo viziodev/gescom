@@ -28,8 +28,9 @@ export class FormClientComponent {
 
    onSubmit() {
     this.clientService.create(this.clientCreate).subscribe(data=>{
-          this.router.navigateByUrl("/clients")
-          
+          if (data.statut==201) {
+            this.router.navigateByUrl("/clients")
+          } 
     })
   }
 }

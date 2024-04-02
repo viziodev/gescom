@@ -1,6 +1,7 @@
 export interface ClientListe {
     id: number,
     nomComplet: string,
+    telephone?:string,
     addresse: string
 }
 

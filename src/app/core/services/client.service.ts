@@ -5,4 +5,5 @@ import { ClientCreateRequest, ClientListe } from "../models/client";
 export interface ClientService {
     findAll(pageNumber:number):Observable<RestResponse<ClientListe[]>>
     create(clientRequest:ClientCreateRequest):Observable<RestResponse<ClientListe>>
+    findTel(tel:string):Observable<RestResponse<ClientListe>>
 }

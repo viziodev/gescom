@@ -45,12 +45,21 @@
                  <input
                     type="text"
                     class="form-control"
-                    name=""
+                    name="telephone"
                     id=""
+                    pattern="^(77|78|76|70){1}[a-zA-Z]{7}"
                     aria-describedby="helpId"
                     placeholder=""
+                    [(ngModel)]="clientCreate.telephone"
+                    #telephone="ngModel"
                 />
-                <small id="helpId" class="form-text text-muted">Help text</small>
+                @if (telephone.errors && (telephone.dirty || telephone.touched) ) {
+                    
+                    @if (telephone.errors['pattern']) {
+                        <small id="helpId" class="form-text text-danger">Telephone non valide</small>
+                    }
+                     
+                 }
             </div>
             <div class="mb-3">
                 <label for="" class="form-label">Quartier</label>

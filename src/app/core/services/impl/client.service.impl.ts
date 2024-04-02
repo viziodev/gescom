@@ -14,6 +14,10 @@ export class ClientServiceImpl implements ClientService{
   constructor(private http:HttpClient) { 
      
   }
+
+  findTel(tel: string): Observable<RestResponse<ClientListe>> {
+    return this.http.get<RestResponse<ClientListe>>(`${this.apiUrl}/tel/${tel}`);
+  }
  
   findAll(pageNumber:number): Observable<RestResponse<ClientListe[]>> {
         return this.http.get<RestResponse<ClientListe[]>>(`${this.apiUrl}/paginate?page=${pageNumber}`);
